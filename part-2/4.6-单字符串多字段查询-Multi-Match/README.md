@@ -14,6 +14,8 @@ POST blogs/_search
     }
 }
 
+//(默认) 查找与任何字段匹配的文档，使用最佳字段中的权重
+// 最佳字段的得分 + tie——breaker*（所有其他字段的得分）
 POST blogs/_search
 {
   "query": {
@@ -118,6 +120,9 @@ POST titles/_bulk
 { "index": { "_id": 2 }}
 { "title": "I see a lot of barking dogs on the road " }
 
+//querying multiple fields that contain the same text analyzed in different ways
+//查找与任何字段匹配的文档，并组合每个字段的权重（相加）
+//copy_to
 GET /titles/_search
 {
    "query": {
