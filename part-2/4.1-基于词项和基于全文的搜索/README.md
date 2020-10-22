@@ -22,7 +22,7 @@ POST /products/_bulk
 
 GET /products
 
-//term查询不会对输入进行任何处理，包括大小写；所以iphone可以返回结果。
+//term查询不会对输入进行任何处理，包括大小写；所以iphone可以返回结果。（建立索引的时候，分词器进行了小写化处理
 POST /products/_search
 {
   "query": {
